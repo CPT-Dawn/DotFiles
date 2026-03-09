@@ -16,3 +16,6 @@ zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 
 autoload -Uz compinit
 compinit -d "$HOME/.cache/zsh/compdump"
+
+# Starship
+eval "$(starship init zsh)"
