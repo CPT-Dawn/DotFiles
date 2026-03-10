@@ -22,10 +22,15 @@ config.font = wezterm.font_with_fallback({
 })
 
 -- ==========================================================
--- Cursor Style
+-- Cursor Style & Key Binds
 -- ==========================================================
 
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_rate = 500
+config.disable_default_key_bindings = true
+config.keys = {
+    { key = 'c', mods = 'CTRL|SHIFT', action = wezterm.action.CopyTo('Clipboard') },
+    { key = 'v', mods = 'CTRL|SHIFT', action = wezterm.action.PasteFrom('Clipboard') },
+}
 
 return config
