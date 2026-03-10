@@ -1,80 +1,55 @@
-"$schema" = 'https://starship.rs/config-schema.json'
 
-# Two-line format: Info on top, clean prompt on the bottom
+# Main prompt structure
 format = """
-[╭─](fg:#7aa2f7) $os$directory$git_branch$git_status$rust$nodejs$c
-[╰─](fg:#7aa2f7) $character"""
+[ ](bold cyan)$username$directory$git_branch$git_state$git_status
+$line_break$character
+"""
 
-# Right-aligned info for things that don't need your immediate focus
-right_format = "$cmd_duration $time"
+[username]
+style_user = 'white bold'
+format = '[$user]($style) '
+show_always = true
 
-# Ensure a fresh line between commands to let the terminal breathe
-add_newline = true
-
-[os]
-disabled = false
-format = "[$symbol]($style) "
-style = "bold fg:#7aa2f7"
-[os.symbols]
-Arch = "🐧"
-Windows = "🪟"
-Macos = "🍎"
-Linux = "🐧"
-
+# Directory
 [directory]
-format = "[📂 $path ]($style)"
-style = "bold fg:#7aa2f7"
+style = "bold cyan"
 truncation_length = 3
+truncate_to_repo = true
 truncation_symbol = "…/"
+home_symbol = "~"
+read_only = " "
+format = "[$path]($style)[$read_only]($read_only_style) "
 
-[directory.substitutions]
-"Documents" = "📄 "
-"Downloads" = "📥 "
-"Pictures" = "🖼️ "
-"DotFiles" = "⚙️ "
-"Desktop" = "🖥️ "
-
+# Git Branch
 [git_branch]
-format = "[🌿 $branch ]($style)"
-style = "bold fg:#9ece6a"
+symbol = " "
+style = "bold purple"
+format = "[$symbol$branch(:$remote_branch)]($style) "
 
+# Git State (rebase, merge, etc.)
+[git_state]
+style = "bold yellow"
+format = "[\\($state( $progress_current/$progress_total)\\)]($style) "
+
+
+# Git Status (files changed)
 [git_status]
-format = "[($all_status$ahead_behind )]($style)"
-style = "bold fg:#f7768e"
-conflicted = "⚔️ "
-ahead = "💨 "
-behind = "🐢 "
-diverged = "🔀 "
-untracked = "🔍 "
-modified = "📝 "
-staged = "✅ "
-renamed = "🏷️ "
-deleted = "🗑️ "
+style = "bold red"
+format = "([\\[$all_status$ahead_behind\\]]($style) )"
 
-[rust]
-format = "[🦀 $version ]($style)"
-style = "bold fg:#e0af68"
-
-[nodejs]
-format = "[📦 $version ]($style)"
-style = "bold fg:#9ece6a"
-
-[c]
-format = "[⚙️ $version ]($style)"
-style = "bold fg:#bb9af7"
-
-[cmd_duration]
-format = "[⏳ $duration]($style)"
-style = "bold fg:#e0af68"
-min_time = 2_000 # Only show if a command takes longer than 2 seconds
-
-[time]
-disabled = false
-time_format = "%I:%M %p"
-format = "[⏰ $time]($style)"
-style = "bold fg:#bb9af7"
-
+conflicted = "✖"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+# Final prompt character
 [character]
-success_symbol = "[🚀](bold fg:#9ece6a)"
-error_symbol = "[💥](bold fg:#f7768e)"
-vimcmd_symbol = "[🛑](bold fg:#e0af68)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold green)"
+
