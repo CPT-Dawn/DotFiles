@@ -1,13 +1,13 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config = {
-    automatically_reload_config = true,
-    enable_tab_bar = false,
-    window_close_confirmation = "NeverPrompt",
-    window_decoration = "RESIZE",
-    default_cursor_style = "BlinkingBar",
-}
+config.automatically_reload_config = true
+
+-- UI
+config.enable_tab_bar = false
+config.window_decorations = "NONE"
+config.window_close_confirmation = "NeverPrompt"
+config.font_size = 12.5
 
 return config
