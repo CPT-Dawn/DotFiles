@@ -1,42 +1,43 @@
-
-# Main prompt structure
 format = """
-[ ](bold cyan)$username$directory$git_branch$git_state$git_status
-$line_break$character
+[ ](bold cyan)$username$hostname$directory$git_branch$git_state$git_status$all
+$character
 """
+
+# --- Core Prompt Modules ---
 
 [username]
 style_user = 'white bold'
-format = '[$user]($style) '
+format = '[$user]($style)'
 show_always = true
 
-# Directory
+[hostname]
+ssh_only = true 
+format = '[@$hostname](bold yellow) '
+disabled = false
+
 [directory]
 style = "bold cyan"
-truncation_length = 3
+truncation_length = 10
 truncate_to_repo = true
-truncation_symbol = "…/"
-home_symbol = "~"
+truncation_symbol = "/"
+home_symbol = ""
 read_only = " "
 format = "[$path]($style)[$read_only]($read_only_style) "
 
-# Git Branch
+# --- Git Modules ---
+
 [git_branch]
 symbol = " "
 style = "bold purple"
 format = "[$symbol$branch(:$remote_branch)]($style) "
 
-# Git State (rebase, merge, etc.)
 [git_state]
 style = "bold yellow"
 format = "[\\($state( $progress_current/$progress_total)\\)]($style) "
 
-
-# Git Status (files changed)
 [git_status]
 style = "bold red"
 format = "([\\[$all_status$ahead_behind\\]]($style) )"
-
 conflicted = "✖"
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -47,9 +48,11 @@ modified = "!"
 staged = "+"
 renamed = "»"
 deleted = "✘"
-# Final prompt character
-[character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
-vicmd_symbol = "[❮](bold green)"
 
+
+# --- Final Prompt Character ---
+
+[character]
+success_symbol = "[  ❯](bold green)"
+error_symbol = "[  ❯](bold red)"
+vicmd_symbol = "[  ❮](bold green)"
