@@ -1,3 +1,5 @@
+add_newline = false
+
 format = """
 [ ](bold cyan)$username$hostname$directory$git_branch$git_state$git_status$all
 $character
