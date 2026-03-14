@@ -17,11 +17,11 @@ zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 autoload -Uz compinit
 compinit -d "$HOME/.cache/zsh/compdump"
 
-# Starship
+# --- Starship ---
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# Yazi
+# --- Yazi ---
 export EDITOR="nvim"
 
 function e() {
@@ -32,5 +32,12 @@ function e() {
 	rm -f -- "$tmp"
 }
 
-# fzf
+# --- fzf ---
 eval "$(fzf --zsh)"
+
+# --- eza ---
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# --- The Fuck ---
+eval $(thefuck --alias)
+eval $(thefuck --alias f)
