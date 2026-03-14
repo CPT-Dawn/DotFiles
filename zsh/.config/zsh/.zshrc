@@ -31,3 +31,6 @@ function e() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# fzf
+eval "$(fzf --zsh)"
