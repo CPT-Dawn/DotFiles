@@ -6,6 +6,12 @@ mkdir -p "$HOME/.cache/zsh"
 export HISTFILE="$HOME/.local/state/zsh/history"
 export HISTSIZE=1000
 export SAVEHIST=1000
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 # --- Zsh Options ---
 setopt autocd beep extendedglob nomatch
@@ -69,3 +75,7 @@ eval $(thefuck --alias f)
 # --- zoxide --- 
 eval "$(zoxide init zsh)"
 alias cd="z"
+
+# --- Auto-suggestions & Syntax-highlighting ---
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
