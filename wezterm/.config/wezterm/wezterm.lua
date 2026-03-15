@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 -- ==========================================================
 -- Window & UI Configuration
 -- ==========================================================
---
+
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
 config.window_close_confirmation = "NeverPrompt"
