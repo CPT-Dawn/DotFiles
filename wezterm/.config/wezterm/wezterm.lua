@@ -15,6 +15,8 @@ config.window_padding = {
     top = 12,
     bottom = 12,
 }
+config.window_background_opacity = 0.85
+config.text_background_opacity = 1.0
 
 -- ==========================================================
 -- Font Configuration
