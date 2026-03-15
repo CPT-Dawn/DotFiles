@@ -124,7 +124,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+1 { spawn "wezterm" "start" "--always-new-process"; }  
+    Mod+1 { spawn "ghostty"; }  
     Mod+2  { spawn "zen-browser"; }
     // Use with lockscreen
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
