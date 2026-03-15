@@ -57,7 +57,6 @@ layout {
 
     default-column-width { proportion 0.5; }
 
-    // --- BEAUTIFUL RGB FOCUS RING ---
     focus-ring {
         width 4
 	
@@ -101,9 +100,6 @@ hotkey-overlay {
 prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-animations {
-}
 
 window-rule {
     match app-id="wezterm"
