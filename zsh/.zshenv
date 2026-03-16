@@ -1,4 +1,3 @@
-# Tell Zsh to look in ~/.config/zsh for .zshrc and .zprofile
 export ZDOTDIR="$HOME/.config/zsh"
 
 # Rust XDG Paths

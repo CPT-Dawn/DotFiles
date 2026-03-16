@@ -1,2 +1,3 @@
-# 1Password SSH Agent
-export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+if uwsm check may-start; then
+    exec uwsm start hyprland.desktop
+fi
