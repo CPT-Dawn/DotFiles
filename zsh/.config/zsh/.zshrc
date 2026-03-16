@@ -76,6 +76,9 @@ eval $(thefuck --alias f)
 eval "$(zoxide init zsh)"
 alias cd="z"
 
+# --- bat --- 
+alias cat="bat"
+
 # --- Auto-suggestions & Syntax-highlighting ---
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
