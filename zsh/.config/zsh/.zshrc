@@ -79,6 +79,9 @@ alias cd="z"
 # --- bat --- 
 alias cat="bat"
 
+# --- lazygit --- 
+alias g='lazygit'
+
 # --- Auto-suggestions & Syntax-highlighting ---
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
