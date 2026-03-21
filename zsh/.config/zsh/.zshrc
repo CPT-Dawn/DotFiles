@@ -85,3 +85,13 @@ alias g='lazygit'
 # --- Auto-suggestions & Syntax-highlighting ---
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# bun completions
+[ -s "/home/CPTDawn/.bun/_bun" ] && source "/home/CPTDawn/.bun/_bun"
+
+# fnm
+FNM_PATH="/home/CPTDawn/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
