@@ -1,3 +1,3 @@
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
+if [[ -z "$WAYLAND_DISPLAY" ]] && [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty1" ]]; then
+    exec niri-session
 fi
