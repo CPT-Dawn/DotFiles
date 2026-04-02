@@ -1,3 +1,5 @@
+quit-after-last-window-closed = false
+
 theme = TokyoNight Night
 
 font-family = "JetBrainsMono Nerd Font" 
@@ -9,6 +11,5 @@ window-padding-x = 12
 window-padding-y = 12
 
 window-padding-color = extend
-background-opacity = 0.85
+background-opacity = 0.85 
 
-quit-after-last-window-closed = false
