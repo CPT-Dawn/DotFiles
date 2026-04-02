@@ -18,11 +18,9 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 # Rust
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export PATH="$CARGO_HOME/bin:$PATH"
 
 # Bun
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Node / NPM
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
@@ -35,6 +33,16 @@ export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 # GnuPG
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
+# 1Password CLI
+export OP_CONFIG_DIR="$XDG_CONFIG_HOME/1Password"
+
 # NVIDIA / CUDA Caches
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME/nv"
+
+# ==========================================
+# PATH Additions (Grouped for cleanliness)
+# ==========================================
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$CARGO_HOME/bin:$PATH"
+export PATH="$DOTNET_CLI_HOME/tools:$PATH"

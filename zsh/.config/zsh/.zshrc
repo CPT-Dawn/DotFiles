@@ -38,6 +38,9 @@ function e() {
 	rm -f -- "$tmp"
 }
 
+# Force VS Code to use XDG directories
+alias code="code --extensions-dir $XDG_DATA_HOME/vscode/extensions"
+
 # --- fzf & fd ---
 eval "$(fzf --zsh)"
 
