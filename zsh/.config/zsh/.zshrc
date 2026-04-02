@@ -68,10 +68,6 @@ _fzf_comprun() {
 # --- eza ---
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
-# --- The Fuck ---
-eval $(thefuck --alias)
-eval $(thefuck --alias f)
-
 # --- zoxide --- 
 eval "$(zoxide init zsh)"
 alias cd="z"
