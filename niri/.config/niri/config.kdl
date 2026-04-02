@@ -126,9 +126,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+1 { spawn "ghostty" "+new-window"; }  
-    Mod+2  { spawn "helium-browser"; }
-    // Use with lockscreen
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    Mod+2 { spawn "code"; }
+    Mod+3 { spawn "helium-browser"; }
+    Mod+4 { spawn "discord"; }
 
     // Audio management
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
