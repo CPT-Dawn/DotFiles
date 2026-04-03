@@ -45,7 +45,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 16
+    gaps 12 
 
     center-focused-column "never"
 
@@ -58,35 +58,25 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 4
-	
-	active-gradient from="#00ffff" to="#d300ff" angle=45 relative-to="workspace-view" in="oklch"
-        
-        // A pitch-black/deep-blue for unfocused windows to make the active window pop even harder
-        inactive-color "#0a0a12"
+	on
+	width 3 
+	active-gradient from="#00000099" to="#00000033" angle=45
+	inactive-color "#00000000"
     }
 
     border {
-        on 
-
-        width 1
-        
-        active-color "#1a1b26"
-        inactive-color "#16161e"
-        urgent-color "#f7768e"
+	off 
     }
 
     shadow {
         on 
-
         draw-behind-window true
 
-        softness 30
+        softness 40 
+        spread 2
+        offset x=0 y=10
 
-        spread 0
-        offset x=0 y=8
-
-        color "#00000080"
+        color "#00000060" 
     }
 }
 
@@ -101,26 +91,6 @@ hotkey-overlay {
 prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-window-rule {
-    match app-id="wezterm"
-    default-column-width { proportion 0.5; }
-}
-
-window-rule {
-    match app-id=r#"zen"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
-    match app-id="zen"
-    open-fullscreen true
-}
-
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -214,26 +184,17 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
-
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+W       { toggle-window-floating; }
+    Mod+Shift+W { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
