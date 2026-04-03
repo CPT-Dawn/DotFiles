@@ -1,368 +1,281 @@
 /* ════════════════════════════════════════════════════════════════════════
-   Zenith — Neon Edge-to-Edge Stylesheet
+   Zenith — Minimalist Edge-to-Edge Stylesheet (Compact Edition)
    ════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────
+   § Variables & Globals
+   ───────────────────────────────────────────────────────────────────── */
+* {
+    /* Define a cohesive, professional palette */
+    --zen-bg: rgba(18, 18, 22, 0.85);
+    --zen-surface: rgba(255, 255, 255, 0.06);
+    --zen-surface-hover: rgba(255, 255, 255, 0.12);
+    --zen-border: rgba(255, 255, 255, 0.08);
+    
+    --zen-text-main: #e2e2e3;
+    --zen-text-muted: #a1a1aa;
+    
+    /* Elegant, subdued accents instead of harsh neon */
+    --zen-accent-blue: #70b0ff;
+    --zen-accent-purple: #b48eed;
+    --zen-accent-green: #6ee7b7;
+    --zen-accent-red: #fb7185;
+    --zen-accent-yellow: #fcd34d;
+}
 
 /* ─────────────────────────────────────────────────────────────────────
    § Window — Fully Transparent Shell
    ───────────────────────────────────────────────────────────────────── */
 window {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Outer Frame — Animated Bottom Neon Glow
+   § Outer Frame — Ultra-Slim Profile
    ───────────────────────────────────────────────────────────────────── */
 .zenith-border {
     border-radius: __ZENITH_RADIUS__px;
-    /* Pushes the border only to the bottom edge for a flush top bar */
-    padding: 0 0 __ZENITH_BORDER_WIDTH__px 0;
-
-    /* High-voltage 4-stop neon spectrum: Cyan → Purple → Pink → Cyan */
-    background: linear-gradient(
-        90deg,
-        rgba(0, 240, 255, 0.8),
-        rgba(176, 38, 255, 0.8),
-        rgba(255, 42, 157, 0.8),
-        rgba(0, 240, 255, 0.8)
-    );
-    background-size: 400% 400%;
-    animation: zenith-border-flow __ZENITH_CYCLE_SECONDS__s linear infinite;
-
-    /* Heavy ambient neon glow */
-    box-shadow:
-        0 4px 15px rgba(0, 240, 255, 0.15),
-        0 0 25px rgba(255, 42, 157, 0.1);
-
+    padding: 0;
+    background: transparent;
     border: none;
+    box-shadow: none; /* Removed heavy neon shadow to save visual space */
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Inner Surface — Dark Base
+   § Inner Surface — Clean Glassmorphism Base
    ───────────────────────────────────────────────────────────────────── */
 .zenith-inner {
-    background-color: __ZENITH_BACKGROUND__;
+    background-color: var(--zen-bg);
     border-radius: __ZENITH_INNER_RADIUS__px;
-    padding: 0 14px;
+    border-bottom: 1px solid var(--zen-border);
+    padding: 0 8px; /* Tighter padding for a slimmer bar */
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Shared Typography
+   § Shared Typography — Compact & Legible
    ───────────────────────────────────────────────────────────────────── */
 .zenith-module {
     font-family: "Inter", "Manrope", "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 12px; /* Slightly smaller to fit the slim 26px height */
-    font-weight: 700;
-    color: #e0e0e0;
+    font-size: 11px; /* Scaled down for compactness */
+    font-weight: 600;
+    color: var(--zen-text-main);
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Module Surface — Glassmorphism Hover
+   § Module Surface — Subtle Hover States
    ───────────────────────────────────────────────────────────────────── */
 .zenith-module-surface {
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 4px;
-    padding: 2px 10px;
-    transition: background 180ms ease, box-shadow 180ms ease;
+    padding: 0 6px; /* Reduced vertical padding */
+    margin: 2px 1px; /* Tight module spacing */
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .zenith-module-surface:hover {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    background: var(--zen-surface);
+    border: 1px solid var(--zen-border);
 }
 
 .zenith-module-surface:active {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--zen-surface-hover);
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Zone Accent Colors
+   § Zone Accent Colors (Semantic & Clean)
    ───────────────────────────────────────────────────────────────────── */
-
 .zenith-module-center,
 .zenith-module-right {
     font-family: "JetBrainsMono Nerd Font", "Inter", monospace;
-    font-weight: 800;
-    font-size: 12px;
+    font-weight: 600;
 }
 
-/* Todo -> Neon Pink */
-.zenith-module-left {
-    color: #ff2a9d;
-    text-shadow: 0 0 8px rgba(255, 42, 157, 0.4);
-}
-
-/* Clock / Date -> Electric Cyan */
-.zenith-module-center {
-    color: #00f0ff;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-}
-
-/* Stats / Media -> Neon Yellow */
-.zenith-module-right {
-    color: #fffb00;
-    text-shadow: 0 0 8px rgba(255, 251, 0, 0.3);
-}
+.zenith-module-left { color: var(--zen-text-muted); }
+.zenith-module-center { color: var(--zen-text-main); }
+.zenith-module-right { color: var(--zen-text-muted); }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Temperature States
+   § Temperature States — Professional Indicators
    ───────────────────────────────────────────────────────────────────── */
-.zenith-module-temp {
-    color: #fffb00;
-}
-
-.zenith-module-temp-cool {
-    color: #00f0ff;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-}
-
-.zenith-module-temp-warm {
-    color: #ff8c00;
-    text-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
-}
-
-.zenith-module-temp-hot {
-    color: #ff003c;
-    text-shadow: 0 0 10px rgba(255, 0, 60, 0.6);
-}
+.zenith-module-temp { color: var(--zen-text-muted); }
+.zenith-module-temp-cool { color: var(--zen-accent-blue); }
+.zenith-module-temp-warm { color: var(--zen-accent-yellow); }
+.zenith-module-temp-hot { color: var(--zen-accent-red); }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Center Logo
+   § Center Logo — Subtle Brand
    ───────────────────────────────────────────────────────────────────── */
 .zenith-logo {
     font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 15px;
-    color: #b026ff;
-    text-shadow: 0 0 12px rgba(176, 38, 255, 0.6);
-    padding: 0 4px;
-    animation: zenith-logo-breathe 2s ease-in-out infinite;
+    font-size: 13px;
+    color: var(--zen-accent-purple);
+    padding: 0 2px;
+    opacity: 0.9;
+    transition: opacity 200ms ease;
+}
+
+.zenith-logo:hover {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(180, 142, 237, 0.4);
 }
 
 .zenith-logo-module,
 .zenith-logo-module:hover,
 .zenith-logo-module:active {
     background: transparent;
-    border-color: transparent;
-    box-shadow: none;
+    border: none;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Calendar — Date Button + Popover
+   § Calendar — Sleek Popover
    ───────────────────────────────────────────────────────────────────── */
 .zenith-calendar-btn {
-    box-shadow: none;
-    padding: 2px 10px;
-    color: #00f0ff;
-    font-size: 12px;
-    font-weight: 800;
+    padding: 0 8px;
+    color: var(--zen-text-main);
+    font-weight: 700;
 }
 
-/* Calendar popup — keeps rounded corners like macOS drop-downs */
 .zenith-calendar-popup {
-    background-color: rgba(10, 10, 14, 0.95);
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    border-radius: 10px;
-    padding: 6px;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 240, 255, 0.15);
+    background-color: var(--zen-bg);
+    border: 1px solid var(--zen-border);
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .zenith-calendar-popup>contents {
     background-color: transparent;
-    border-radius: 10px;
     padding: 4px;
 }
 
 .zenith-calendar {
-    background-color: transparent;
-    color: #e0e0e0;
-    font-family: "Inter", "Manrope", sans-serif;
-    font-size: 12px;
+    color: var(--zen-text-main);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
 }
 
 .zenith-calendar>header {
-    color: #ff2a9d;
-    font-weight: 800;
-    text-shadow: 0 0 5px rgba(255, 42, 157, 0.4);
+    color: var(--zen-accent-blue);
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 
 .zenith-calendar>header>button {
-    color: #00f0ff;
+    color: var(--zen-text-main);
     background: transparent;
     border: none;
 }
 
 .zenith-calendar :selected {
-    background-color: #b026ff;
-    color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(176, 38, 255, 0.6);
+    background-color: var(--zen-surface-hover);
+    color: var(--zen-accent-blue);
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Player Module — Now Playing
+   § Player Module — Minimalist Media
    ───────────────────────────────────────────────────────────────────── */
 .zenith-player-btn {
-    box-shadow: none;
-    padding: 1px 10px;
-    min-width: 160px;
+    padding: 0 8px;
+    min-width: 120px; /* Reduced width to save space */
 }
 
 .zenith-player-title {
-    font-family: "JetBrainsMono Nerd Font", "Inter", monospace;
+    font-family: "Inter", sans-serif;
     font-size: 11px;
-    font-weight: 700;
-    color: #39ff14;
-    text-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+    font-weight: 500;
+    color: var(--zen-accent-green);
 }
 
-/* Progress bar — glowing gradient track */
+/* Progress bar — ultra-thin tracking line */
 .zenith-player-progress {
     min-height: 2px;
+    margin-top: 2px;
 }
 
 .zenith-player-progress trough {
     min-height: 2px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    background: var(--zen-surface);
 }
 
 .zenith-player-progress progress {
     min-height: 2px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #39ff14, #00f0ff);
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    border-radius: 2px;
+    background: var(--zen-accent-green);
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Todo Module — Bar Button
+   § Todo Module — Clean Task Management
    ───────────────────────────────────────────────────────────────────── */
 .zenith-todo-btn {
-    box-shadow: none;
-    padding: 2px 10px;
-    font-family: "JetBrainsMono Nerd Font", "Inter", monospace;
-    font-size: 11px;
-    font-weight: 700;
+    padding: 0 8px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
 }
 
-.zenith-todo-btn-empty {
-    color: #b026ff;
-    text-shadow: 0 0 8px rgba(176, 38, 255, 0.5);
-    animation: zenith-todo-pulse 2s ease-in-out infinite;
-}
-
-.zenith-todo-btn-active {
-    color: #ff2a9d;
-    text-shadow: 0 0 8px rgba(255, 42, 157, 0.4);
-}
-
-.zenith-todo-btn-urgent {
-    color: #ff003c;
-    text-shadow: 0 0 10px rgba(255, 0, 60, 0.6);
-    animation: zenith-todo-urgent 1s ease-in-out infinite;
-}
+.zenith-todo-btn-empty { color: var(--zen-text-muted); }
+.zenith-todo-btn-active { color: var(--zen-accent-purple); }
+.zenith-todo-btn-urgent { color: var(--zen-accent-red); font-weight: 700; }
 
 /* ─────────────────────────────────────────────────────────────────────
-   § Todo Popover
+   § Todo Popover — Compact List
    ───────────────────────────────────────────────────────────────────── */
 .zenith-todo-popup {
-    background-color: rgba(10, 10, 14, 0.95);
-    border: 1px solid rgba(255, 42, 157, 0.3);
-    border-radius: 12px;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(255, 42, 157, 0.15);
+    background-color: var(--zen-bg);
+    border: 1px solid var(--zen-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    padding: 4px;
 }
 
 .zenith-todo-title {
-    font-family: "Inter", "Manrope", sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    color: #00f0ff;
-    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--zen-text-main);
+    padding-bottom: 4px;
 }
 
-.zenith-todo-progress {
-    color: #b026ff;
-    background: rgba(176, 38, 255, 0.15);
-}
+/* Slimmed down progress indicators */
+.zenith-todo-progress { background: var(--zen-surface); }
+.zenith-todo-progress-track { background: transparent; }
 
-.zenith-todo-progress-track {
-    background: rgba(255, 255, 255, 0.1);
-}
+.zenith-todo-fill-low { background: var(--zen-accent-red); }
+.zenith-todo-fill-mid { background: var(--zen-accent-yellow); }
+.zenith-todo-fill-high { background: var(--zen-accent-green); }
 
-.zenith-todo-fill-low {
-    background: #ff003c;
-    box-shadow: 0 0 8px rgba(255, 0, 60, 0.6);
-}
+.zenith-todo-prio-high { color: var(--zen-accent-red); }
+.zenith-todo-prio-mid { color: var(--zen-accent-yellow); }
+.zenith-todo-prio-low { color: var(--zen-accent-blue); }
 
-.zenith-todo-fill-mid {
-    background: #fffb00;
-    box-shadow: 0 0 8px rgba(255, 251, 0, 0.5);
-}
-
-.zenith-todo-fill-high {
-    background: #39ff14;
-    box-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
-}
-
-.zenith-todo-prio-high {
-    background: #ff003c;
-    box-shadow: 0 0 8px rgba(255, 0, 60, 0.6);
-}
-
-.zenith-todo-prio-mid {
-    background: #fffb00;
-    box-shadow: 0 0 8px rgba(255, 251, 0, 0.4);
-}
-
-.zenith-todo-prio-low {
-    background: #00f0ff;
-    box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-}
-
-.zenith-todo-text {
-    color: #e0e0e0;
-}
+.zenith-todo-text { color: var(--zen-text-main); font-size: 11px; }
 
 .zenith-todo-entry {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    color: #ffffff;
+    background: var(--zen-surface);
+    border: 1px solid transparent;
+    color: var(--zen-text-main);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-top: 4px;
 }
 
 .zenith-todo-entry:focus {
-    border-color: #00f0ff;
-    box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+    border-color: var(--zen-accent-purple);
+    outline: none;
 }
 
 .zenith-todo-add-btn {
-    background: linear-gradient(135deg, #b026ff, #ff2a9d);
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(176, 38, 255, 0.4);
+    background: var(--zen-surface-hover);
+    color: var(--zen-text-main);
+    border-radius: 4px;
+    margin-top: 4px;
+    transition: background 150ms ease;
 }
 
-/* ─────────────────────────────────────────────────────────────────────
-   § Keyframe Animations
-   ───────────────────────────────────────────────────────────────────── */
-
-@keyframes zenith-border-flow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
-
-@keyframes zenith-logo-breathe {
-    0%, 100% { text-shadow: 0 0 8px rgba(176, 38, 255, 0.4); }
-    50% { text-shadow: 0 0 20px rgba(176, 38, 255, 0.9); }
-}
-
-@keyframes zenith-todo-pulse {
-    0%, 100% { text-shadow: 0 0 6px rgba(176, 38, 255, 0.3); }
-    50% { text-shadow: 0 0 15px rgba(176, 38, 255, 0.7); }
-}
-
-@keyframes zenith-todo-urgent {
-    0%, 100% { text-shadow: 0 0 8px rgba(255, 0, 60, 0.4); }
-    50% { text-shadow: 0 0 20px rgba(255, 0, 60, 0.9); }
+.zenith-todo-add-btn:hover {
+    background: var(--zen-accent-purple);
+    color: #fff;
 }
