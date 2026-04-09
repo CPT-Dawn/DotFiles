@@ -1,6 +1,5 @@
 [mgr]
 ratio          = [ 2, 4, 3 ]
-show_hidden    = true
 
 [preview]
 max_width       = 1200
