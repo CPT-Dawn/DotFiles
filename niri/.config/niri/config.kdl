@@ -121,7 +121,7 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
     // Session / window controls
-    Mod+O repeat=false { toggle-overview; }
+    Mod+A repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
     // Focus movement
@@ -130,36 +130,25 @@ binds {
     Mod+Up    { focus-workspace-up; }
     Mod+Down  { focus-workspace-down; }
 
-
     // Move windows / columns
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Down  { move-window-down; }
 
-
-    // Column position
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
-
     // Monitor movement
     Mod+Shift+Left  { focus-monitor-left; }
     Mod+Shift+Right { focus-monitor-right; }
 
-
     // Send window to workspace
     Mod+Shift+Up   { move-window-to-workspace-up; }
     Mod+Shift+Down { move-window-to-workspace-down; }
-
 
     // Move columns between monitors
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-
 
     // Workspace movement
     Mod+Page_Down      { focus-workspace-down; }
