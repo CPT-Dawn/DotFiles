@@ -77,6 +77,10 @@ layout {
     }
 }
 
+overview {
+    backdrop-color "#010612"
+}
+
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "vellum"
 spawn-at-startup "1password" "--silent"
@@ -90,12 +94,7 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-overview {
-    backdrop-color "#010612"
-}
-
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+1 { spawn "ghostty" "+new-window"; }  
     Mod+2 { spawn "code"; }
