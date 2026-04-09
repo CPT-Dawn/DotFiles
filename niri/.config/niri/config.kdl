@@ -90,6 +90,10 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+overview {
+    backdrop-color "#010612"
+}
+
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
