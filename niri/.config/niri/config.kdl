@@ -44,8 +44,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 12 
-
+    gaps 10
     center-focused-column "never"
 
     preset-column-widths {
@@ -58,26 +57,26 @@ layout {
 
     focus-ring {
 	on
-	width 3 
-	active-gradient from="#00ffff" to="#d300ff" angle=45 relative-to="workspace-view" in="oklch"
-        inactive-color "#0a0a12"
-
+	width 2
+	active-gradient from="#7af7ff" to="#5aa9ff" angle=55 
+	inactive-color "#0a0a12"
     }
 
     shadow {
-        on 
+        on
         draw-behind-window true
 
-        softness 40 
-        spread 2
-        offset x=0 y=10
+        softness 42
+        spread 4
+        offset x=0 y=14
 
-        color "#00000060" 
+        color "#000000aa"
+        inactive-color "#00000070"
     }
 }
 
 overview {
-    backdrop-color "#010612"
+    backdrop-color "#0a1024"
 }
 
 window-rule {
