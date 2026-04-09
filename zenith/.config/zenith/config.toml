@@ -5,6 +5,7 @@
 [bar]
 # ─── Geometry ───────────────────────────────────────────────────────────
 
+monitor = "eDP-1"
 # Ultra-slim flush macOS style
 height = 26
 
