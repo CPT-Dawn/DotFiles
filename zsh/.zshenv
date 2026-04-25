@@ -46,3 +46,8 @@ export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="$DOTNET_CLI_HOME/tools:$PATH"
+
+# Ollama and claude
+export ANTHROPIC_BASE_URL="http://localhost:11434"
+export ANTHROPIC_AUTH_TOKEN="ollama"
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
