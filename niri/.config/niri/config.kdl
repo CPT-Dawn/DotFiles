@@ -110,7 +110,7 @@ binds {
     // Launchers
     Mod+1 { spawn "ghostty" "+new-window"; }
     Mod+2 { spawn "helium-browser"; }
-    Mod+3 { spawn "code"; }
+    Mod+3 { spawn "zeditor"; }
     Mod+4 { spawn "discord"; }
     Mod+5 { spawn "steam"; }
     Mod+E { spawn "nautilus"; }
